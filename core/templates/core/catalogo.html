@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+    {% load static %}
+
+
+{% block contenido %}    
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
+            <h1 class="display-4 mt-4">Lista de Productos</h1>
+            <p class="lead">Los mejores productos para el desarrollo tecnológico</p>
+        </div>
+
+        <div class="container" id="lista-productos">
+            
+            <div class="card-deck mb-3 text-center">
+                    {% for producto in productos %}
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-bold">{{producto.0}}</h4>
+                            </div>
+                            <div class="card-body">
+                                
+                                <h1 class="card-title pricing-card-title precio">$ <span class="">{{producto.1}}</span></h1>
+    
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li></li>
+                                    <li>Stock: {{producto.2}}</li>
+                                </ul>
+                                <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="p{{producto.3}}">Comprar</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+
+
+        </div>
+
+   
+    <script src="{% static 'core/js/carrito.js' %}"></script>
+    <script src="{% static 'core/js/pedido.js' %}"></script>
+    
+  
+
+
+
+{% endblock  %}
